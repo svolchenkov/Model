@@ -1,0 +1,138 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 18, 2016, 5:32:01 PM
+    Author     : Sergey
+*/
+
+#glaw{
+    margin:auto;
+    width:1440px;
+}
+.block0{
+    float:left;
+    margin:3px 3px 3px 5px;
+    width:1417px;
+    height:240px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
+}
+.block1, .block2{
+    float:left;
+    margin:3px 3px 3px 5px;
+    width:700px;
+    height:350px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
+}
+.block3, .block4{
+    float:left;
+    margin:3px 3px 3px 5px;
+    width:700px;
+    height:400px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
+}
+.block10{
+    float:left;
+    margin:3px 3px 3px 5px;
+    width:700px;
+    height:800px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
+}
+.block11{
+    float:left;
+    margin:3px 3px 3px 5px;
+    width:700px;
+    height:800px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
+}
+.block22{
+    float:left;
+    margin:3px 3px 3px 5px;
+    width:1300px;
+    height:70px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
+}
+
+#financeMain{
+    margin:auto;
+    width:650px;
+
+    vertical-align: top;
+    font-weight: bold; 
+    color: darkred; 
+    font-size: 12px; 
+    font-style: italic;
+}
+.block31, .block32{
+    float:left;
+    margin:3px 3px 3px 5px;
+    width:300px;
+    height:120px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
+}
+.block33, .block34{
+    float:left;
+    margin:3px 3px 3px 5px;
+    width:300px;
+    height:180px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
+}
+
+h2 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    border-bottom: 1px solid #AFAFAF; 
+    font-size:  22px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    color: darkred;
+}
+h3 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    border-bottom: 1px solid #AFAFAF; 
+    font-size:  16px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    color: darkred;
+}
+h4 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  14px;
+    font-weight: bold;
+    color: darkred;
+}
+.cells {
+    font-size:  14px;
+    color: darkred;
+}
+
+.finance_center {
+    text-align: center;
+}

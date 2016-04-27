@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <body>
+
+        <ui:composition template="./template.xhtml">
+
+            <ui:define name="content">
+                <table id="homePerformance" ><tr><td>
+                            <div id="glaw">
+                                <div class="block0">
+                                    <h3>Home Performance</h3>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <img class="alignright size-full wp-image-533"  
+                                                     src="resources/lable.png" 
+                                                     align="left" width="120" height="45" />
+                                            </td>
+                                            <td>
+                                                <h4><h:outputText value="Sq ft:  " />
+                                                    <p:inputText value="#{homePerformance.sqFt}" /></h4>
+                                            </td>
+                                            <td><h4>
+                                                    <h:outputText id="outputMessage" value="Total price for HPP: #{homePerformance.total}" /></h4>
+                                            </td>
+                                            <td>
+                                                <p:commandButton value="Submit"   >
+                                                    <f:ajax render="outputMessage" />
+                                                </p:commandButton>
+                                            </td>
+                                            <td>
+                                                <p:commandButton value="ToDashBoardPage" action="#{dashBoard.toDashBoardPage(homePerformance.getTotal())}" /> 
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="block10" >
+                                    <h3>List items</h3>
+                                    <table>
+                                        <tr>
+                                            <td>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <!-- Insulate Attic -->
+                                            <td><h4><h:outputText value="Insulate Attic: " /></h4></td>
+                                            <td><p:selectOneButton value="#{homePerformance.insulateAttic}">
+                                                    <f:selectItem itemLabel="Yes" itemValue="1" />
+                                                    <f:selectItem itemLabel="No" itemValue="0" />
+                                                </p:selectOneButton></td>
+                                        </tr>
+                                        <tr>
+                                            <!-- Fresh Start -->
+                                            <td><h4><h:outputText value="Fresh Start: " /></h4></td>
+                                            <td><p:selectOneButton value="#{homePerformance.freshStart}">
+                                                    <f:selectItem itemLabel="Yes" itemValue="1" />
+                                                    <f:selectItem itemLabel="No" itemValue="0" />
+                                                </p:selectOneButton></td>
+                                        </tr>
+                                        <tr>
+                                            <!-- Crawl Space Insulation -->
+                                            <td><h4><h:outputText value="Crawl Space Insulation: " /></h4></td>
+                                            <td><p:selectOneButton value="#{homePerformance.crawlSpaceInsulation}">
+                                                    <f:selectItem itemLabel="Yes" itemValue="1" />
+                                                    <f:selectItem itemLabel="No" itemValue="0" />
+                                                </p:selectOneButton></td>
+                                        </tr>
+                                        <tr>
+                                            <!-- Seal Ducting to Code Compliance Standards -->
+                                            <td><h4><h:outputText value="Seal Ducting to Code Compliance Standards: " /></h4></td>
+                                            <td><p:selectOneButton value="#{homePerformance.sealDuctingToCodeComplianceStandards}">
+                                                    <f:selectItem itemLabel="Yes" itemValue="1" />
+                                                    <f:selectItem itemLabel="No" itemValue="0" />
+                                                </p:selectOneButton></td>
+                                        </tr>
+                                        <tr>
+                                            <!-- Air Seal Package -->
+                                            <td><h4><h:outputText value="Air Seal Package: " /></h4></td>
+                                            <td><p:selectOneButton value="#{homePerformance.airSealPackage}">
+                                                    <f:selectItem itemLabel="Yes" itemValue="1" />
+                                                    <f:selectItem itemLabel="No" itemValue="0" />
+                                                </p:selectOneButton></td>
+                                        </tr>
+                                        <tr>
+                                            <!-- CAZ Area Report -->
+                                            <td><h4><h:outputText value="CAZ Area Report: " /></h4></td>
+                                            <td><p:selectOneButton value="#{homePerformance.cAZAreaReport}">
+                                                    <f:selectItem itemLabel="Yes" itemValue="1" />
+                                                    <f:selectItem itemLabel="No" itemValue="0" />
+                                                </p:selectOneButton></td>
+                                        </tr>
+                                        <tr>
+                                            <!-- Install R-8 Ducting Standalone -->
+                                            <td><h4><h:outputText value="Install R-8 Ducting Standalone: " /></h4></td>
+                                            <td><p:selectOneButton value="#{homePerformance.installR8DuctingStandalone}">
+                                                    <f:selectItem itemLabel="Yes" itemValue="1" />
+                                                    <f:selectItem itemLabel="No" itemValue="0" />
+                                                </p:selectOneButton></td>
+                                        </tr>
+                                        <tr>
+                                            <!-- Install R-8 Ducting w/ New HVAC System -->
+                                            <td><h4><h:outputText value="Install R-8 Ducting w/ New HVAC System: " /></h4></td>
+                                            <td><p:selectOneButton value="#{homePerformance.installR8DuctingNewHVACSystem}">
+                                                    <f:selectItem itemLabel="Yes" itemValue="1" />
+                                                    <f:selectItem itemLabel="No" itemValue="0" />
+                                                </p:selectOneButton></td>
+                                        </tr>
+                                        <tr>
+                                            <!-- New HVAC System (ERI Private Label) -->
+                                            <td><h4><h:outputText value="New HVAC System (ERI Private Label): " /></h4></td>
+                                            <td><p:selectOneButton value="#{homePerformance.newHVACSystemERIPrivateLabel8a}">
+                                                    <f:selectItem itemLabel="Yes" itemValue="1" />
+                                                    <f:selectItem itemLabel="No" itemValue="0" />
+                                                </p:selectOneButton></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="block10" >
+                                    <h3>List items</h3>
+                                </div>
+                            </div>     
+                        </td></tr></table>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

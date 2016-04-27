@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:p="http://primefaces.org/ui" >
+
+    <h:body>
+        <h:form>
+            <ui:composition template="./template.xhtml">
+
+                <ui:define name="left">
+                    left
+                </ui:define>
+
+                <ui:define name="right">
+                    right
+                </ui:define>
+
+                <ui:define name="content">
+                    <table>
+                        <tr>
+                            <td><h:outputText value="First meeting: " /> </td>
+                            <td><p:calendar id="firstMeeting" value="#{questions.firstMeeting}" showOn="button" /></td>
+                        </tr>
+                        <tr><td><h:outputText value="Follow Up With ES: " /></td>
+                            <td><p:calendar id="followUpWithES" value="#{questions.followUpWithES}" showOn="button" /></td>
+                            <td><p:commandButton id="sendEmailNotification" value="send e-mail notification" action="#{questions.sendNotification()}" /></td>
+                        </tr>
+                        <tr><td><h:outputText value="Advisor: " /></td>
+                            <td><p:selectOneMenu id="advisor" value="#{questions.advisor}" style="width:200px">
+                                    <f:selectItem itemLabel="select" itemValue="select" />
+                                    <f:selectItem itemLabel="Amrit Roy" itemValue="Amrit Roy" />
+                                    <f:selectItem itemLabel="Diosdado Cervania" itemValue="Diosdado Cervania" />
+                                    <f:selectItem itemLabel="Eduardo Cusion" itemValue="Eduardo Cusion" />
+                                </p:selectOneMenu></td>
+                        </tr>
+                        <tr><td><h:outputText value="Ambassador Addition: " /></td>
+                            <td><p:selectOneMenu id="ambassador" value="#{questions.ambassador}" style="width:200px">
+                                    <f:selectItem itemLabel="select" itemValue="select" />
+                                    <f:selectItem itemLabel="Cora Velasco" itemValue="Cora Velasco" />
+                                    <f:selectItem itemLabel="Delia Jurado" itemValue="Delia Jurado" />
+                                    <f:selectItem itemLabel="Imelda Eusebio" itemValue="Imelda Eusebio" />
+                                </p:selectOneMenu></td>
+                        </tr>
+                        <tr><td><h:outputText value="Client 1. First Name: " /></td>
+                            <td><h:inputText  value="#{questions.firstName1}" /></td>
+                        </tr>
+                        <tr><td><h:outputText value="Client 1. Last Name: " /></td>
+                            <td><h:inputText  value="#{questions.lastName1}" /></td>
+                        </tr>
+                        <tr><td><h:outputText value="Client 1. Email: " /></td>
+                            <td><h:inputText  value="#{questions.email1}" /></td>
+                        </tr>
+                        <tr><td><h:outputText value="Client 1. Phone Number: " /></td>
+                            <td><h:inputText  value="#{questions.phone1}" /></td>
+                        </tr>
+                        <tr><td><h:outputText value="Client 2. First Name: " /></td>
+                            <td><h:inputText  value="#{questions.firstName2}" /></td>
+                        </tr>
+                        <tr><td><h:outputText value="Client 2. Last Name: " /></td>
+                            <td><h:inputText  value="#{questions.lastName2}" /></td>
+                        </tr>
+                        <tr><td><h:outputText value="Client 2. Email: " /></td>
+                            <td><h:inputText  value="#{questions.email2}" /></td>
+                        </tr>
+                        <tr><td><h:outputText value="Client 2. Phone Number: " /></td>
+                            <td><h:inputText  value="#{questions.phone2}" /></td>
+                        </tr>
+                        <tr><td><h:outputText value="Street Adress: " /></td>
+                            <td><h:inputText  value="#{questions.address}" /></td>
+                        </tr>
+
+                        <tr><td><h:outputText value="City: " /></td>
+                            <td><h:inputText  value="#{questions.city}" /></td>
+                        </tr>
+                        <tr><td><h:outputText value="Zip Code: " /></td>
+                            <td><h:inputText  value="#{questions.zip}" /></td>
+                        </tr>
+                        <tr><td><h:outputText value="Square Footage: " /></td>
+                            <td><h:inputText  value="#{questions.squareFootage}" /></td>
+                        </tr>
+                        <tr><td><h:outputText value="Year of Home: " /></td>
+                            <td><h:inputText  value="#{questions.yearHome}" /></td>
+                        </tr>
+                        <tr><td><h:outputText value="Efficiency Upgrades: " /></td>
+                            <td><h:inputTextarea  value="#{questions.effciencyUpgrades}" cols="22" rows="6" /></td>
+                        </tr>
+                        <tr><td><h:outputText value="FICO Scope: " /></td>
+                            <td><h:inputText  value="#{questions.ficoScore}" /></td>
+                        </tr>
+                        <tr><td><h:outputText value="State Qualifier Median Income 75k? " /></td>
+                            <td><h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                                    <p:selectOneRadio id="stateQualifierMedianIncome75K" value="#{questions.stateQualifierMedianIncome75K}"  layout="grid" columns="1">
+                                        <f:selectItem itemValue="Trust" itemLabel="Trust" />
+                                        <f:selectItem itemValue="Less than 30500" itemLabel="Less than 30500" />
+                                        <f:selectItem itemValue="30500 - 50000" itemLabel="30500 - 50000" />
+                                        <f:selectItem itemValue="50000 - 75000" itemLabel="50000 - 75000" />
+                                        <f:selectItem itemValue="More than 75000" itemLabel="More than 75000" />
+                                    </p:selectOneRadio>
+                                </h:panelGrid></td>
+                        </tr>
+                       <tr><td><h:outputText value="Free PGE Weather Stripping and Insulation " /></td>
+                            <td><h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                                    <p:selectOneRadio id="freePGEWeatherStripping" value="#{questions.freePGEWeatherStripping}"  layout="grid" columns="1">
+                                        <f:selectItem itemValue="Yes" itemLabel="Yes" />
+                                        <f:selectItem itemValue="No" itemLabel="No" />
+                                        <f:selectItem itemValue="Unsure" itemLabel="Unsure" />
+                                    </p:selectOneRadio>
+                                </h:panelGrid></td>
+                        </tr>
+                         <tr><td><h:outputText value="Reason for CARE Program " /></td>
+                            <td><p:selectManyCheckbox id="reasonFroCareProgram" value="#{questions.reasonForCareProgram}" layout="grid" columns="1">
+                                    <f:selectItem itemValue="Income Qualification" itemLabel="Income Qualification" />
+                                    <f:selectItem itemValue="Medical Equipment" itemLabel="Medical Equipment" />
+                                    <f:selectItem itemValue="On Public Assistance" itemLabel="On Public Assistance" />
+                                    <f:selectItem itemValue="Other" itemLabel="Other" />
+
+                                </p:selectManyCheckbox></td>
+                        </tr>
+                        <tr><td><h:outputText value="Time Travel Explained " /></td>
+                            <td><h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                                    <p:selectOneRadio id="timeTravelExplained" value="#{questions.timeTravelExplained}"  layout="grid" columns="1">
+                                        <f:selectItem itemValue="Yes" itemLabel="Yes" />
+                                        <f:selectItem itemValue="No" itemLabel="No" />
+                                    </p:selectOneRadio>
+                                </h:panelGrid></td>
+                        </tr>
+                        <tr><td><h:outputText value="Qualify to Speak with Hub " /></td>
+                            <td><h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                                    <p:selectOneRadio id="qualifyToSpeakWithHub" value="#{questions.qualifyToSpeakWithHub}"  layout="grid" columns="1">
+                                        <f:selectItem itemValue="Yes" itemLabel="Yes" />
+                                        <f:selectItem itemValue="No" itemLabel="No" />
+                                    </p:selectOneRadio>
+                                </h:panelGrid></td>
+                        </tr>
+                       <tr><td><h:outputText value="Additional Notes: " /></td>
+                            <td><h:inputTextarea  value="#{questions.additionalNOTES}" cols="22" rows="6" /></td>
+                        </tr>
+                        <tr><td><h:outputText value="Director: " /></td>
+                            <td><p:selectOneMenu id="director" value="#{questions.director}" style="width:125px">
+                                    <f:selectItem itemLabel="select" itemValue="select" />
+                                    <f:selectItem itemLabel="Stevens" itemValue="Stevens" />
+                                    <f:selectItem itemLabel="TomReid" itemValue="TomReid" />
+                                </p:selectOneMenu></td>
+                        </tr>
+                        <tr><td><h:outputText value="Number of Appointments: " /></td>
+                            <td><h:inputText  value="#{questions.numberOfAppointments}" /></td>
+                        </tr>
+                        <tr><td><h:outputText value="Custom Added User: " /></td>
+                            <td><h:inputText  value="#{questions.customAddUser}" /></td>
+                        </tr>
+                        <tr><td><h:outputText value="Milage for normal car: " /></td>
+                            <td><h:inputText  value="#{questions.mileage}" /></td>
+                        </tr>
+                        
+                        <tr><td><h:outputText value=" " /></td> 
+                            <td><p:commandButton id="submit" value="submit" action="#{questions.submit()}" style="color: green"/>
+                                <p:outputLabel value=".." />
+                                <p:commandButton id="reset" value="reset" action="#{questions.reset()}" style="color: red" /></td>
+                        </tr> 
+                        
+                    </table>
+                </ui:define>
+
+            </ui:composition>
+        </h:form>
+    </h:body>
+</html>

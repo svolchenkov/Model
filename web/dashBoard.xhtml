@@ -1,0 +1,266 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link type="text/css" rel="stylesheet" href="resources/css/default.css"/>
+        <link type="text/css" rel="stylesheet" href="resources/css/cssLayout.css"/>
+        <link type="text/css" rel="stylesheet" href="resources/css/dashboard.css" />
+
+        <title>EnergySquad</title>
+    </h:head>
+
+    <body>
+        <ui:composition template="./template.xhtml">
+            <ui:define name="content">
+                <table>
+                    <tr><td>
+                            <center><h2>Dash board</h2></center>
+                            <div id="glaw">
+
+                                <!-- **********************                Information              ****************************** -->
+
+                                <div class="block0">
+                                    <h3>Information</h3>
+                                    <table>
+                                        <tr>
+                                            <td><img class="alignright size-full wp-image-533"  
+                                                     src="resources/lable.png" 
+                                                     align="left" width="120" height="45" />
+                                            </td>
+                                            <td><h4><h:outputText value="Annual KWs per/year: " />
+                                                    <p:inputText value="#{dashBoard.annualKWs}" /></h4></td>
+                                            <td><h4><h:outputText value="Utility District: " /></h4></td>
+                                            <td><p:selectOneMenu id="advisor" value="#{dashBoard.utilityDistrict}" style="width:200px">
+                                                    <f:selectItem itemLabel="select" itemValue="select" />
+                                                    <f:selectItem itemLabel="SMUD" itemValue="smud" />
+                                                    <f:selectItem itemLabel="PGE" itemValue="pge" />
+                                                    <f:selectItem itemLabel="Roseville" itemValue="roseville" />
+                                                </p:selectOneMenu></td>
+                                            <td><h4><h:outputText value="Introduce Vehicle:" /></h4></td>
+                                            <td><p:selectOneButton value="#{dashBoard.introduceVehicle}">
+                                                    <f:selectItem itemLabel="Yes" itemValue="1" />
+                                                    <f:selectItem itemLabel="No" itemValue="0" />
+                                                </p:selectOneButton>
+                                            </td>
+                                            <td><p:commandButton id="calculate" value="calculate" style="color: darkred" >
+                                                    <f:ajax render="spendKW" />
+                                                    <f:ajax render="currentMoPayment" />
+                                                    <f:ajax render="horizontalBarModel" />
+                                                    <f:ajax render="sliderKW" />
+                                                    <f:ajax render="cosenValue" />
+                                                    <f:ajax render="financeCosenKW" />
+                                                    <f:ajax render="financeMoPaymentToCompany" />
+                                                    <f:ajax render="numbersOfPanels" />
+                                                    <f:ajax render="costOfSolar" />
+                                                    <f:ajax render="wholeCostSolar" />
+                                                    <f:ajax render="annualKWAfterApplyHPP" />
+                                                    <f:ajax render="moPaymentBySolarHPP" />
+                                                    <f:ajax render="financeWholeMoPaymentSomeSum" />
+                                                    <f:ajax render="wholesaleCostHPP" />
+                                                    <f:ajax render="financeCostOfSolar" />
+                                                    <f:ajax render="solar2" />
+                                                    <f:ajax render="lineModel" /> 
+                                                   
+                                                    <f:ajax render="spendKW" />
+                                                    <f:ajax render="currentMoPayment" />
+                                                    <f:ajax render="horizontalBarModel" />
+                                                    <f:ajax render="sliderKW" />
+                                                    <f:ajax render="cosenValue" />
+                                                    <f:ajax render="financeCosenKW" />
+                                                    <f:ajax render="financeMoPaymentToCompany" />
+                                                    <f:ajax render="numbersOfPanels" />
+                                                    <f:ajax render="costOfSolar" />
+                                                    <f:ajax render="wholeCostSolar" />
+                                                    <f:ajax render="annualKWAfterApplyHPP" />
+                                                    <f:ajax render="moPaymentBySolarHPP" />
+                                                    <f:ajax render="financeWholeMoPaymentSomeSum" />
+                                                    <f:ajax render="wholesaleCostHPP" />
+                                                    <f:ajax render="financeCostOfSolar" />
+                                                    <f:ajax render="solar2" />
+                                                    <f:ajax render="lineModel" /> 
+                                                </p:commandButton>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table><tr><td><h:outputText value="KW " />
+                                            </td>
+                                            <td>
+                                                <p:chart id="horizontalBarModel" type="bar" model="#{dashBoard.horizontalBarModel}" style="height:60px; width: 1250px"/>
+                                            </td>
+                                        </tr>
+                                        <tr><td>
+                                                <h:outputText value="KW" />
+                                            </td>
+                                            <td>
+                                                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                                                    <h:outputText id="displayRange" value="Between #{dashBoard.wantMinEvaluate} and #{dashBoard.wantMaxEvaluate}" />
+                                                    <p:slider id="sliderKW" for="txt6,txt7" display="displayRange" style="width: 1250px" range="true" 
+                                                              displayTemplate="Between {min} and {max}" maxValue="#{dashBoard.getSpendKW()/600}" />
+                                                </h:panelGrid>
+                                                <h:inputHidden id="txt6" value="#{dashBoard.wantMinEvaluate}" />
+                                                <h:inputHidden id="txt7" value="#{dashBoard.wantMaxEvaluate}" />
+                                            </td>
+                                            <td>
+                                                <h:outputText id="cosenValue" value="You have chosen: #{dashBoard.wantMaxEvaluate - dashBoard.wantMinEvaluate} KW" />
+                                            </td>
+
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <!-- **********************                Finance              ****************************** -->
+
+                                <div class="block1">
+                                    <h3>Finance</h3>
+                                    <div id="financeMain">
+                                        <div class="block31">
+                                            <div><h3><h:outputText value="AS IS (current situation)" /></h3></div>
+                                            <p />
+                                            <div><h:outputText id="spendKW" value="Spend KW: #{dashBoard.spendKW} " /></div>
+                                            <div><h:outputText id="currentMoPayment" value="Current Mo. payment: #{dashBoard.currentMoPaymant} $" /></div>
+                                        </div>
+                                        <div class="block32">
+                                            <div><div><h3><h:outputText value="TO BE (after realize the project)" /></h3></div></div>
+                                            <p />
+                                            <div><h:outputText id="financeCosenKW" value="Chosen KW: #{dashBoard.wantMaxEvaluate - dashBoard.wantMinEvaluate} " /></div>
+                                            <div><h:outputText id="annualKWAfterApplyHPP" value="Annual KW after apply HPP + Solar: #{dashBoard.annualKWafterHPP} KW" /></div>
+                                            <div><h:outputText id="financeMoPaymentToCompany" value="Mo. payment to company: #{dashBoard.moPaymentToCompany} $" /></div>
+                                            
+                                            <div><h:outputText id="moPaymentBySolarHPP" value="Mo. payment by solar + HPP:  #{dashBoard.moPaymentSolarHPP} $" /></div>
+                                            <div><h:outputText id="financeWholeMoPaymentSomeSum" value="Whole Mo. payment: some sum #{dashBoard.moPaymentToCompany + dashBoard.moPaymentSolarHPP} $" /></div>
+                                            <div></div>
+                                        </div>
+                                        <div class="block33">
+                                            <div><h3><h:outputText value="Finance:" /></h3></div>
+                                            <p />
+                                            <div><h:outputText value="Mo. payment:" /></div>
+                                            <p />
+                                            <div><p:outputLabel value="percent:  " />
+                                                <p:inputText value="#{dashBoard.moPaymentPercent}" /></div>
+                                            <p />
+                                            <div><p:outputLabel value="years:  " />
+                                                <p:inputText value="#{dashBoard.moPaymentYears}" /></div>
+                                        </div>
+                                        <div class="block34">
+                                            <div><h3><h:outputText value="Solar + HPP:" /></h3></div>
+                                            <p />
+                                            <div><h:outputText value="HPP:" /></div>
+                                            <div><h:outputText value="Percent of economy: 20 %" /></div>
+                                            <div><h:outputText id="wholesaleCostHPP" value="Wholesale cost HPP: #{dashBoard.totalHP}" /></div>
+                                            <p />
+                                            <div><h:outputText value="Solar:" /></div>
+                                            <div><h:outputText id="financeCostOfSolar" value="Cost of Solar: #{dashBoard.totalSolar}" /></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- **********************                Home performance              ****************************** -->
+
+                                <div class="block2"><h3>Home performance</h3>
+                                    <table>
+                                        <tr>
+                                            <td><h4><h:outputText value="Enabled Home Performance:" /></h4></td>
+                                            <td><p:selectOneButton value="#{dashBoard.enabledHomePerformance}">
+                                                    <f:selectItem itemLabel="Yes" itemValue="1" />
+                                                    <f:selectItem itemLabel="No" itemValue="0" />
+                                                </p:selectOneButton></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h4><h:outputText value="Wholesale cost HPP: " /></h4>
+                                            </td>
+                                            <td>
+                                                <p:inputText value="#{dashBoard.totalHP}" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h4><h:outputText value="Gross HP: " /></h4>
+                                            </td>
+                                            <td>
+                                                <p:inputText value="#{dashBoard.grossHP}" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h4><h:outputText value="Information: " /></h4>
+                                            </td>
+                                            <td>
+                                                <p:inputText value="#{dashBoard.information}" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p:commandButton id="toChooseHPItems" value="To choose HP items" action="homePerformance.xhtml" style="color: darkred"  />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <!-- **********************                Solar              ****************************** -->                                
+
+                                <div class="block3"><h3>Solar</h3>
+
+                                    <table>
+                                        <tr>
+                                            <td><h4><h:outputText value="Enabled Solar:" /></h4></td>
+                                            <td><p:selectOneButton value="#{dashBoard.enabledSolar}">
+                                                    <f:selectItem itemLabel="Yes" itemValue="1" />
+                                                    <f:selectItem itemLabel="No" itemValue="0" />
+                                                </p:selectOneButton></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h4><h:outputText value="K Killowats: " /></h4>
+                                            </td>
+                                            <td>
+                                                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                                                    <p:inputText id="solar2" value="#{dashBoard.countSolar}" >
+                                                    </p:inputText>
+                                                    <p:slider for="solar2" maxValue="16" />  
+                                                </h:panelGrid>
+                                            </td>
+                                        </tr>
+                                        <tr><td >
+                                                <h4><h:outputText id="numbersOfPanels" value="Numbers of panels: #{dashBoard.numberOfPanel} " /></h4>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h4><h:outputText id="costOfSolar" value="Cost of Solar: #{dashBoard.costOfSolar}" /></h4>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h4><h:outputText value="Any Solar Adders: " /></h4>
+                                            </td>
+                                            <td>
+                                                <p:inputText value="#{dashBoard.anySolarAdders}" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><h4><h:outputText id="wholeCostSolar" value="Whole cost Solar: #{dashBoard.totalSolar}" /></h4>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <!-- **********************                Diagram              ****************************** -->
+
+                                <div class="block4"><h3>Diagram</h3>
+                                    <p:chart id="lineModel" type="line" model="#{dashBoard.lineModel}" style="height:300px;"/>
+                                </div>       
+                            </div>
+                        </td></tr></table>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
